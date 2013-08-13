@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btn_favorite_tabheader"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black" >
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello" >
+    </TextView>
+
+    <Button
+        android:id="@+id/StartBtn"
+        android:layout_width="100dip"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="开始" >
+    </Button>
+
+    <Button
+        android:id="@+id/locBtn"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/StartBtn"
+        android:layout_alignTop="@+id/StartBtn"
+        android:layout_toRightOf="@+id/StartBtn"
+        android:text="定位" >
+    </Button>
+
+    <Button
+        android:id="@+id/setBtn"
+        android:layout_width="100dip"
+        android:layout_height="50dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="设置" >
+    </Button>
+
+    <EditText
+        android:id="@+id/addrEdit"
+        android:layout_width="100dip"
+        android:layout_height="40dip"
+        android:layout_above="@+id/setBtn"
+        android:layout_alignLeft="@+id/setBtn"
+        android:layout_alignRight="@+id/setBtn"
+        android:text="detail" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="100dip"
+        android:layout_height="40dip"
+        android:layout_above="@+id/setBtn"
+        android:layout_alignLeft="@+id/addrEdit"
+        android:layout_alignRight="@+id/addrEdit"
+        android:text="3000" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edit"
+        android:layout_alignTop="@+id/edit"
+        android:layout_toLeftOf="@+id/edit"
+        android:text="扫描时间间隔 :" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/coorEdit"
+        android:layout_width="100dip"
+        android:layout_height="40dip"
+        android:layout_above="@+id/edit"
+        android:layout_alignLeft="@+id/edit"
+        android:layout_alignRight="@+id/edit"
+        android:text="bd09ll" >
+    </EditText>
+
+    <CheckBox
+        android:id="@+id/gpsCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="40dip"
+        android:layout_above="@+id/coorEdit"
+        android:layout_alignRight="@+id/coorEdit"
+        android:text="打开GPS" >
+    </CheckBox>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/coorEdit"
+        android:layout_alignTop="@+id/coorEdit"
+        android:layout_toLeftOf="@+id/coorEdit"
+        android:text="坐标系类型 :" >
+    </TextView>
+
+    <Button
+        android:id="@+id/PoiReq"
+        android:layout_width="100dip"
+        android:layout_height="50dip"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:text="PoiRequest" />
+
+    <CheckBox
+        android:id="@+id/priorityCheck"
+        android:layout_width="100dip"
+        android:layout_height="50dip"
+        android:layout_alignTop="@+id/gpsCheck"
+        android:layout_toLeftOf="@+id/locBtn"
+        android:text="网络优先级" />
+
+    <Button
+        android:id="@+id/offLineBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gpsCheck"
+        android:text="离线请求" />
+
+    <CheckBox
+        android:id="@+id/isAddrInfocb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/offLineBtn"
+        android:layout_marginBottom="14dp"
+        android:layout_toRightOf="@+id/locBtn"
+        android:text="是否要地址信息" />
+
+</RelativeLayout>
