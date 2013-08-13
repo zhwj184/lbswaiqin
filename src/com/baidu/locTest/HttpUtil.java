@@ -12,7 +12,7 @@ import java.util.Date;
 public class HttpUtil {
 	public static void httpUrlConnection(String query, String content) {
 		try {
-//			String hosturl = "http://192.168.1.5/jiagoushi/api/report";
+//			String hosturl = "http://192.168.1.4/jiagoushi/api/report";
 			String hosturl = "http://www.javaarch.net/jiagoushi/api/report";
 			String pathUrl = hosturl + "?"
 					+ query + "&content=" + URLEncoder.encode(content, "GBK");

@@ -34,11 +34,12 @@ public class LocationReportService extends Service {
 		option.setOpenGps(true);
 		option.setAddrType("all");// 返回的定位结果包含地址信息
 		option.setCoorType("bd09ll");// 返回的定位结果是百度经纬度,默认值gcj02
-		option.setScanSpan(5000);// 设置发起定位请求的间隔时间为5000ms
+		option.setScanSpan(10000);// 设置发起定位请求的间隔时间为5000ms
 		option.disableCache(true);// 禁止启用缓存定位
 		option.setPoiNumber(10); // 最多返回POI个数
 		option.setPoiDistance(1000); // poi查询距离
 		option.setPoiExtraInfo(false); // 是否需要POI的电话和地址等详细信息
+		option.setPriority(LocationClientOption.GpsFirst);//设置GPS优先
 		mLocationClient.setLocOption(option);
 		mLocationClient.start();
 
@@ -90,14 +91,15 @@ class MyLocationListener implements BDLocationListener {
 			sb.append(location.getSpeed());
 			sb.append("\nsatellite : ");
 			sb.append(location.getSatelliteNumber());
+			location.setAddrStr("");
 		} else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {
 			sb.append("\naddr : ");
 			sb.append(location.getAddrStr());
 		}
 //		while (true) {
 			try {
-				HttpUtil.httpUrlConnection("lat=" + location.getLatitude() + "&lng=" + location.getLongitude() + "&phone="+ tm.getDeviceId() + "&date=" + URLEncoder.encode(HttpUtil.convertToTime(System.currentTimeMillis()), "GBK")
-						+"&address=" + URLEncoder.encode(location.getAddrStr(),"GBK"),sb.toString());
+				HttpUtil.httpUrlConnection("lat=" + location.getLatitude() + "&lng=" + location.getLongitude() + "&phone="+ tm.getDeviceId() + "&date=" + URLEncoder.encode(location.getTime(), "GBK")
+						+"&address=" + URLEncoder.encode(location.getAddrStr(),"GBK") + "&type=" + location.getLocType() + "&radius=",sb.toString());
 //				Thread.sleep(10000);
 //			} catch (InterruptedException e) {
 //				// TODO Auto-generated catch block
