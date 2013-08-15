@@ -110,8 +110,7 @@ public class Location extends Application {
 //			while (true) {
 				try {
 					TelephonyManager tm = (TelephonyManager) Location.this.getSystemService(Context.TELEPHONY_SERVICE);
-					httpUrlConnection("lat=" + location.getLatitude() + "&lng=" + location.getLongitude() + "&phone="+ tm.getDeviceId() + "&date=" + URLEncoder.encode(convertToTime(System.currentTimeMillis()), "GBK")
-							+"&address=" + URLEncoder.encode(location.getAddrStr(),"GBK"),sb.toString());
+					httpUrlConnection("lat=" + location.getLatitude() + "&lng=" + location.getLongitude() + "&phone="+ tm.getDeviceId() + "&date=" + URLEncoder.encode(HttpUtil.convertToTime(System.currentTimeMillis()), "GBK"),sb.toString());
 //					Thread.sleep(10000);
 //				} catch (InterruptedException e) {
 //					// TODO Auto-generated catch block
@@ -143,7 +142,9 @@ public class Location extends Application {
 			if (poiLocation.getLocType() == BDLocation.TypeNetWorkLocation){
 				sb.append("\naddr : ");
 				sb.append(poiLocation.getAddrStr());
-			} 
+			} else{
+				poiLocation.setAddrStr("");
+			}
 			if(poiLocation.hasPoi()){
 				sb.append("\nPoi:");
 				sb.append(poiLocation.getPoi());
@@ -155,14 +156,15 @@ public class Location extends Application {
 //			while (true) {
 				try {
 					TelephonyManager tm = (TelephonyManager) Location.this.getSystemService(Context.TELEPHONY_SERVICE);
-					httpUrlConnection("lat=" + poiLocation.getLatitude() + "&lng=" + poiLocation.getLongitude() + "&phone="+ tm.getDeviceId() + "&date=" + URLEncoder.encode(convertToTime(System.currentTimeMillis()), "GBK")
-							+"&address=" + URLEncoder.encode(poiLocation.getAddrStr(),"GBK"),sb.toString());
+					httpUrlConnection("lat=" + poiLocation.getLatitude() + "&lng=" + poiLocation.getLongitude() + "&phone="+ tm.getDeviceId() + "&date=" + URLEncoder.encode(poiLocation.getTime(), "GBK"),sb.toString());
 //					Thread.sleep(10000);
 //				} catch (InterruptedException e) {
 //					// TODO Auto-generated catch block
 //					e.printStackTrace();
 				} catch (UnsupportedEncodingException e) {
 					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}catch(Exception e){
 					e.printStackTrace();
 				}
 //			}

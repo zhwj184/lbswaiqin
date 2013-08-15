@@ -32,7 +32,7 @@ public class LocationReportService extends Service {
 
 		LocationClientOption option = new LocationClientOption();
 		option.setOpenGps(true);
-		option.setAddrType("all");// 返回的定位结果包含地址信息
+//		option.setAddrType("all");// 返回的定位结果包含地址信息
 		option.setCoorType("bd09ll");// 返回的定位结果是百度经纬度,默认值gcj02
 		option.setScanSpan(10000);// 设置发起定位请求的间隔时间为5000ms
 		option.disableCache(true);// 禁止启用缓存定位
@@ -97,8 +97,8 @@ class MyLocationListener implements BDLocationListener {
 		}
 //		while (true) {
 			try {
-				HttpUtil.httpUrlConnection("lat=" + location.getLatitude() + "&lng=" + location.getLongitude() + "&phone="+ tm.getDeviceId() + "&date=" + URLEncoder.encode(location.getTime(), "GBK")
-						+"&address=" + URLEncoder.encode(location.getAddrStr(),"GBK") + "&type=" + location.getLocType() + "&radius=",sb.toString());
+				HttpUtil.httpUrlConnection("lat=" + location.getLatitude() + "&lng=" + location.getLongitude() + "&phone="+ tm.getDeviceId() + "&date=" + URLEncoder.encode(HttpUtil.convertToTime(System.currentTimeMillis()), "GBK") 
+						+ "&type=" + location.getLocType() + "&radius=" + location.getRadius(),sb.toString());
 //				Thread.sleep(10000);
 //			} catch (InterruptedException e) {
 //				// TODO Auto-generated catch block
