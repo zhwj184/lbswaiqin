@@ -32,7 +32,7 @@ public class BootReceiver extends BroadcastReceiver {
   
             // 10秒一个周期，不停的发送广播  
             am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, firstime,  
-                    10 * 60 * 1000, sender);  
+                    2 * 60 * 1000, sender);  
         }  
   
     }

@@ -89,6 +89,7 @@ public class Location extends Application {
 				sb.append(location.getSpeed());
 				sb.append("\nsatellite : ");
 				sb.append(location.getSatelliteNumber());
+				location.setAddrStr("");
 			} else if (location.getLocType() == BDLocation.TypeNetWorkLocation){
 //				sb.append("\n °£∫");
 //				sb.append(location.getProvince());
@@ -117,6 +118,8 @@ public class Location extends Application {
 //					e.printStackTrace();
 				} catch (UnsupportedEncodingException e) {
 					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}catch(Exception e){
 					e.printStackTrace();
 				}
 //			}

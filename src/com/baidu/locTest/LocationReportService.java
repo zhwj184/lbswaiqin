@@ -51,7 +51,6 @@ public class LocationReportService extends Service {
   
     @Override  
     public void onStart(Intent intent, int startId) {  
-		
     }  
 	
 	public IBinder onBind(Intent intent) {

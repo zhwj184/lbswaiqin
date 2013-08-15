@@ -6,11 +6,11 @@
 
     <uses-sdk android:minSdkVersion="8" />
 
-   <!--
+   
 	<application android:name="com.baidu.locTest.Location"
 		android:icon="@drawable/icon" android:label="@string/app_name">
 
-		<activity android:name=".mainActivity" android:configChanges="orientation|keyboardHidden"
+		<activity android:name="com.baidu.locTest.mainActivity" android:configChanges="orientation|keyboardHidden"
 			android:label="@string/app_name">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
         </service>
 
 	</application>
-     -->
+    <!--
 
     <application
         android:allowBackup="true"
@@ -51,7 +51,7 @@
                 <action android:name="arui.alarm.action" />
             </intent-filter>
         </receiver>
-    </application>
+    </application> -->
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
     </uses-permission>
